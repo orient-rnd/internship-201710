@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Interns2.Infrastructure.MongoDb;
 
 namespace Interns2.AppServices.MVC
 {
@@ -22,6 +23,11 @@ namespace Interns2.AppServices.MVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddSingleton<IMongoDbWriteRepository>(sp =>
+            {
+                return new MongoDbWriteRepository("mongodb://nguyensonuser:Domino00@ds117485.mlab.com:17485/nguyenson");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,7 +49,7 @@ namespace Interns2.AppServices.MVC
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Films}/{action=Index}/{id?}");
             });
         }
     }

@@ -29,6 +29,13 @@ namespace Interns2.AppServices.MVC.Controllers
             return View();
         }
 
+        public IActionResult Film()
+        {
+            ViewData["message"] = "Welcome to Film Page";
+
+            return View();
+        }
+
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
