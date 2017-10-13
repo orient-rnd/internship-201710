@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Interns2.Infrastructure.MongoDb;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace Interns2.AppServices.API
 {
@@ -28,7 +29,12 @@ namespace Interns2.AppServices.API
 
             services.AddSingleton<IMongoDbWriteRepository>(sp =>
             {
-                return new MongoDbWriteRepository("mongodb://interns2:interns2@ds117485.mlab.com:17485/interns2");
+                return new MongoDbWriteRepository("mongodb://nguyensonuser:Domino00@ds117485.mlab.com:17485/nguyenson");
+            });
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
             });
         }
 
@@ -39,6 +45,14 @@ namespace Interns2.AppServices.API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
 
             app.UseMvc();
         }
