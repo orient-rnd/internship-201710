@@ -1,0 +1,11 @@
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.Domain\bin\Debug\netcoreapp2.0\Interns2.Domain.deps.json
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.Domain\bin\Debug\netcoreapp2.0\Interns2.Domain.dll
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.Domain\bin\Debug\netcoreapp2.0\Interns2.Domain.pdb
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.Domain\bin\Debug\netcoreapp2.0\Interns2.Infrastructure.MongoDb.dll
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.Domain\bin\Debug\netcoreapp2.0\Interns2.Infrastructure.MongoDb.pdb
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.Domain\obj\Debug\netcoreapp2.0\Interns2.Domain.csprojResolveAssemblyReference.cache
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.Domain\obj\Debug\netcoreapp2.0\Interns2.Domain.csproj.CoreCompileInputs.cache
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.Domain\obj\Debug\netcoreapp2.0\Interns2.Domain.AssemblyInfoInputs.cache
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.Domain\obj\Debug\netcoreapp2.0\Interns2.Domain.AssemblyInfo.cs
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.Domain\obj\Debug\netcoreapp2.0\Interns2.Domain.dll
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.Domain\obj\Debug\netcoreapp2.0\Interns2.Domain.pdb
