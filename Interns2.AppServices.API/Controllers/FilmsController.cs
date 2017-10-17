@@ -38,9 +38,7 @@ namespace Interns2.AppServices.API.Controllers
             if (request.IsHighestRate.HasValue && request.IsHighestRate.Value)
             {
                 films = films.OrderBy(n => n.Rate).ToList();
-            }
-
-            films.FirstOrDefault().Type = Domain.Enum.FilmType.TinhCam;
+            }            
 
             return Ok(films.Take(request.Quantity));
         }
@@ -50,7 +48,7 @@ namespace Interns2.AppServices.API.Controllers
         public IActionResult Get(string id)
         {
             var film = _writeRepository.Get<Film>(id);
-            return Ok();
+            return Ok(film);
         }
 
         // POST api/values

@@ -16,8 +16,6 @@ namespace Interns2.Domain.Domains
 
         public List<FilmType> Types { get; set; } = new List<FilmType>();
 
-        public FilmType Type { get; set; }
-
         public DateTime? DatePublish { get; set; }
 
         public string Producer { get; set; }
