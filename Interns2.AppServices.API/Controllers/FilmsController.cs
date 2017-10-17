@@ -38,7 +38,7 @@ namespace Interns2.AppServices.API.Controllers
             if (request.IsHighestRate.HasValue && request.IsHighestRate.Value)
             {
                 films = films.OrderBy(n => n.Rate).ToList();
-            }            
+            }
 
             return Ok(films.Take(request.Quantity));
         }
@@ -55,6 +55,10 @@ namespace Interns2.AppServices.API.Controllers
         [HttpPost]
         public IActionResult Post([FromBody]Film film)
         {
+            if (!ModelState.IsValid)
+            {
+                return new UnprocessableEntityObjectResult(ModelState);
+            }
             film.Id = Guid.NewGuid().ToString();
             _writeRepository.Create(film);
             return Ok();
@@ -70,8 +74,10 @@ namespace Interns2.AppServices.API.Controllers
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(string id)
         {
+            //var film = _writeRepository.Get<Film>(id);
+            _writeRepository.Delete<Film>(id);
             return Ok();
         }
     }
