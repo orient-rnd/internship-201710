@@ -36,10 +36,6 @@ namespace Interns2.AppServices.API
             {
                 return new MongoDbWriteRepository("mongodb://interns2:interns2@ds117485.mlab.com:17485/interns2");
             });
-<<<<<<< HEAD
-=======
-
->>>>>>> develop
             // Add Cors
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {
@@ -47,10 +43,6 @@ namespace Interns2.AppServices.API
                        .AllowAnyMethod()
                        .AllowAnyHeader();
             }));
-<<<<<<< HEAD
-        
-=======
->>>>>>> develop
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -69,12 +61,8 @@ namespace Interns2.AppServices.API
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
-<<<<<<< HEAD
             app.UseCors("MyPolicy");
             app.UseMvc();
-            
-=======
-
             app.UseCors("MyPolicy");
 
             app.UseMvc();
@@ -83,7 +71,6 @@ namespace Interns2.AppServices.API
             {
                 DefaultFileNames = new List<string> { "index.html" }
             });
->>>>>>> develop
         }
     }
 }
