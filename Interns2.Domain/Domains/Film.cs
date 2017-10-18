@@ -12,7 +12,8 @@ namespace Interns2.Domain.Domains
     [BsonIgnoreExtraElements]
     public class Film : AuditableEntityBase, IAggregateRoot
     {
-        [Required]
+        [Required(ErrorMessage ="Please fill Title")]
+        [StringLength(100)]
         public string Title { get; set; }
         
         public string Description { get; set; }
@@ -24,10 +25,12 @@ namespace Interns2.Domain.Domains
         public string Producer { get; set; }
 
         [BsonRepresentation(BsonType.Int64, AllowTruncation = true)]
+        [Range(0,10,ErrorMessage ="Fill 0 to 10")]
         public int Rate { get; set; }
 
+        [StringLength(300)]
         public string Image { get; set; }
-
+        
         public string LinkFilm { get; set; }
 
         public List<string> Actors { get; set; } = new List<string>();
