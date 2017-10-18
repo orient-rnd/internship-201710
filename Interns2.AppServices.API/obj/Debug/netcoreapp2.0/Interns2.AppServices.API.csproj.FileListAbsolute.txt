@@ -1,0 +1,15 @@
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.AppServices.API\bin\Debug\netcoreapp2.0\Interns2.AppServices.API.deps.json
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.AppServices.API\bin\Debug\netcoreapp2.0\Interns2.AppServices.API.runtimeconfig.json
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.AppServices.API\bin\Debug\netcoreapp2.0\Interns2.AppServices.API.runtimeconfig.dev.json
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.AppServices.API\bin\Debug\netcoreapp2.0\Interns2.AppServices.API.dll
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.AppServices.API\bin\Debug\netcoreapp2.0\Interns2.AppServices.API.pdb
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.AppServices.API\bin\Debug\netcoreapp2.0\Interns2.Domain.dll
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.AppServices.API\bin\Debug\netcoreapp2.0\Interns2.Infrastructure.MongoDb.dll
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.AppServices.API\bin\Debug\netcoreapp2.0\Interns2.Domain.pdb
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.AppServices.API\bin\Debug\netcoreapp2.0\Interns2.Infrastructure.MongoDb.pdb
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.AppServices.API\obj\Debug\netcoreapp2.0\Interns2.AppServices.API.csprojResolveAssemblyReference.cache
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.AppServices.API\obj\Debug\netcoreapp2.0\Interns2.AppServices.API.csproj.CoreCompileInputs.cache
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.AppServices.API\obj\Debug\netcoreapp2.0\Interns2.AppServices.API.AssemblyInfoInputs.cache
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.AppServices.API\obj\Debug\netcoreapp2.0\Interns2.AppServices.API.AssemblyInfo.cs
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.AppServices.API\obj\Debug\netcoreapp2.0\Interns2.AppServices.API.dll
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.AppServices.API\obj\Debug\netcoreapp2.0\Interns2.AppServices.API.pdb

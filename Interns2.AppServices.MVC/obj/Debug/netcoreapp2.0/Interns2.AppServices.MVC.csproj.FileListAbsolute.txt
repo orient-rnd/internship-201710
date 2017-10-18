@@ -1,0 +1,11 @@
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.AppServices.MVC\bin\Debug\netcoreapp2.0\Interns2.AppServices.MVC.deps.json
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.AppServices.MVC\bin\Debug\netcoreapp2.0\Interns2.AppServices.MVC.runtimeconfig.json
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.AppServices.MVC\bin\Debug\netcoreapp2.0\Interns2.AppServices.MVC.runtimeconfig.dev.json
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.AppServices.MVC\bin\Debug\netcoreapp2.0\Interns2.AppServices.MVC.dll
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.AppServices.MVC\bin\Debug\netcoreapp2.0\Interns2.AppServices.MVC.pdb
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.AppServices.MVC\obj\Debug\netcoreapp2.0\Interns2.AppServices.MVC.csprojResolveAssemblyReference.cache
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.AppServices.MVC\obj\Debug\netcoreapp2.0\Interns2.AppServices.MVC.csproj.CoreCompileInputs.cache
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.AppServices.MVC\obj\Debug\netcoreapp2.0\Interns2.AppServices.MVC.AssemblyInfoInputs.cache
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.AppServices.MVC\obj\Debug\netcoreapp2.0\Interns2.AppServices.MVC.AssemblyInfo.cs
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.AppServices.MVC\obj\Debug\netcoreapp2.0\Interns2.AppServices.MVC.dll
+D:\Software\Orient-source\Trainer\internship-201710\Interns2.AppServices.MVC\obj\Debug\netcoreapp2.0\Interns2.AppServices.MVC.pdb
