@@ -36,7 +36,6 @@ namespace Interns2.AppServices.API
             {
                 return new MongoDbWriteRepository("mongodb://interns2:interns2@ds117485.mlab.com:17485/interns2");
             });
-
             // Add Cors
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {
@@ -62,7 +61,8 @@ namespace Interns2.AppServices.API
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
-
+            app.UseCors("MyPolicy");
+            app.UseMvc();
             app.UseCors("MyPolicy");
 
             app.UseMvc();

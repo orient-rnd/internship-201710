@@ -14,8 +14,9 @@ namespace Interns2.Domain.Domains
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Password is required")]
-
+        [RegularExpression(@"(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,16}")]
         public string Password { get; set; }
+
 
         [Required(ErrorMessage = "Full name is required")]
         [MinLength(5)]
