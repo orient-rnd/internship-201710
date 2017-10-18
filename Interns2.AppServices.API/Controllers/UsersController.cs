@@ -60,8 +60,10 @@ namespace Interns2.AppServices.API.Controllers
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(string id)
         {
+            _writeRepository.Delete<User>(id);
+            return Ok();
         }
     }
 }
