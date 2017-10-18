@@ -12,7 +12,6 @@ namespace Interns2.Domain.Domains
     [BsonIgnoreExtraElements]
     public class Film : AuditableEntityBase, IAggregateRoot
     {
-<<<<<<< HEAD
         private string title;
 
         public string GetTitle()
@@ -27,10 +26,9 @@ namespace Interns2.Domain.Domains
 
         [StringLength(360)]
         [Required]
-=======
         [Required(ErrorMessage = "Film's title is required")]
         [MaxLength(100)]
->>>>>>> a60e1a97eca9eaf0b59b42fbde9f3548bd113ac9
+
         public string Title { get; set; }
 
         [MaxLength(360)]
@@ -39,13 +37,8 @@ namespace Interns2.Domain.Domains
         public List<FilmType> Types { get; set; } = new List<FilmType>();
 
         public FilmType Type { get; set; }
-<<<<<<< HEAD
-        
-
-=======
 
         [Required(ErrorMessage = "Date of publishing is required")]
->>>>>>> a60e1a97eca9eaf0b59b42fbde9f3548bd113ac9
         public DateTime? DatePublish { get; set; }
 
         [RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$")]
