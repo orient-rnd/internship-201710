@@ -24,7 +24,7 @@ namespace Interns2.AppServices.API.Controllers
 
         // GET: api/values
         [HttpGet]
-        public IActionResult Get([FromQuery] GetListFilmsRequest request)
+        public IActionResult Get([FromQuery] GetListUsersRequest request)
         {
             var filter = Builders<Film>.Filter.Empty;
 

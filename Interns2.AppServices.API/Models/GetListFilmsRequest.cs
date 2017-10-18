@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Interns2.AppServices.API.Models
 {
-    public class GetListFilmsRequest
+    public class GetListUsersRequest
     {
         public int Quantity { get; set; } = 100;
 

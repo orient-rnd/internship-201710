@@ -1,15 +1,17 @@
 ﻿using Interns2.Infrastructure.MongoDb.Models;
 using System;
 using System.Collections.Generic;
+using MongoDB.Bson.Serialization.Attributes;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
-using System.ComponentModel.DataAnnotations;
 
 namespace Interns2.Domain.Domains
 {
+    [BsonIgnoreExtraElements]
     public class User : AuditableEntityBase, IAggregateRoot
     {
         [Required(ErrorMessage = "Email is required")]
+        [RegularExpression(@"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}", ErrorMessage = "Please enter correct email")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
