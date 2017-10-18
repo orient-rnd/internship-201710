@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Interns2.Infrastructure.MongoDb;
-using Interns2.Domain.Domains;
-using MongoDB.Driver;
 using Interns2.AppServices.MVC.Models;
+using MongoDB.Driver;
+using Interns2.Domain.Domains;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -21,10 +21,9 @@ namespace Interns2.AppServices.MVC.Controllers
             _writeRepository = writeRepository;
         }
 
-
         // GET: api/values
         [HttpGet]
-        public IActionResult Index()    
+        public IActionResult Index()
         {
             var filter = Builders<Film>.Filter.Empty;
 
@@ -40,34 +39,33 @@ namespace Interns2.AppServices.MVC.Controllers
             //    films = films.OrderBy(n => n.Rate).ToList();
             //}
 
+            //films.FirstOrDefault().Type = Domain.Enum.FilmType.TinhCam;
+
             return View(films);
         }
 
         // GET api/values/5
         //[HttpGet("{id}")]
-        public IActionResult Get(string id)
+        public IActionResult Detail(string id)
         {
             var film = _writeRepository.Get<Film>(id);
-            //Builders<Film>.Filter.Eq("Id", id);
-            //var filter= Builder
-            return Ok();
+            return View(film);
         }
 
         // POST api/values
         [HttpPost]
         public IActionResult Post([FromBody]Film film)
         {
-            //film.Id = Guid.NewGuid().ToString();
+            film.Id = Guid.NewGuid().ToString();
             _writeRepository.Create(film);
             return Ok();
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public IActionResult Put(string id, [FromBody]Film value)
+        public IActionResult Put(string id, [FromBody]Film film)
         {
-            //var film = _writeRepository.Get<Film>(id);
-            _writeRepository.Replace(value);
+            _writeRepository.Replace(film);
             return Ok();
         }
 
@@ -75,7 +73,6 @@ namespace Interns2.AppServices.MVC.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-
             return Ok();
         }
     }

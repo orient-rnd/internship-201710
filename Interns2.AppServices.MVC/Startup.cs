@@ -26,7 +26,7 @@ namespace Interns2.AppServices.MVC
 
             services.AddSingleton<IMongoDbWriteRepository>(sp =>
             {
-                return new MongoDbWriteRepository("mongodb://nguyensonuser:Domino00@ds117485.mlab.com:17485/nguyenson");
+                return new MongoDbWriteRepository("mongodb://interns2:interns2@ds117485.mlab.com:17485/interns2");
             });
         }
 

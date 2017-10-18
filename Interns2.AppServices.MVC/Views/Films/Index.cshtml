@@ -1,7 +1,7 @@
 ﻿@using Interns2.Domain.Domains;
 @model List<Film>
 @{
-    ViewData["Title"] = "Films Page";
+    ViewData["Title"] = "Home Page";
 }
 
 <div>
@@ -9,11 +9,8 @@
         @foreach (var item in Model)
         {
             <li>
-                <span>@item.Title</span> - <span>@item.Id</span>
-                
+                <a href="~/Films/Detail/@item.Id">@item.Title</a>  - <span>@item.Description</span> -<span>@item.DatePublish</span>
             </li>
         }
     </ul>
 </div>
-
-

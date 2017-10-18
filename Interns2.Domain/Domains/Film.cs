@@ -1,33 +1,40 @@
 ﻿using Interns2.Domain.Enum;
 using Interns2.Infrastructure.MongoDb.Models;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace Interns2.Domain.Domains
 {
-    //loai bo 1 so thu neu ko match dc
     [BsonIgnoreExtraElements]
     public class Film : AuditableEntityBase, IAggregateRoot
     {
+        [Required(ErrorMessage ="Please fill Title")]
+        [StringLength(100)]
         public string Title { get; set; }
-
+        
         public string Description { get; set; }
 
         public List<FilmType> Types { get; set; } = new List<FilmType>();
 
-        public DateTime DatePublish { get; set; }
+        public DateTime? DatePublish { get; set; }
 
         public string Producer { get; set; }
 
+        [BsonRepresentation(BsonType.Int64, AllowTruncation = true)]
+        [Range(0,10,ErrorMessage ="Fill 0 to 10")]
         public int Rate { get; set; }
 
+        [StringLength(300)]
         public string Image { get; set; }
+        
+        public string LinkFilm { get; set; }
 
         public List<string> Actors { get; set; } = new List<string>();
 
         public FilmStatus Status { get; set; }
-
     }
 }

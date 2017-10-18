@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
-    <PackageReference Include="MongoDB.Bson" Version="2.4.4" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,6 +15,10 @@
   <ItemGroup>
     <ProjectReference Include="..\Interns2.Domain\Interns2.Domain.csproj" />
     <ProjectReference Include="..\Interns2.Infrastructure.MongoDb\Interns2.Infrastructure.MongoDb.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="NewFolder\" />
   </ItemGroup>
 
 </Project>

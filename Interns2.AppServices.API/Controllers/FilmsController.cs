@@ -7,8 +7,6 @@ using Interns2.AppServices.API.Models;
 using Interns2.Domain.Domains;
 using Interns2.Infrastructure.MongoDb;
 using MongoDB.Driver;
-using Swashbuckle.AspNetCore.Swagger;
-
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -17,7 +15,6 @@ namespace Interns2.AppServices.API.Controllers
     [Route("films")]
     public class FilmsController : Controller
     {
-
         private readonly IMongoDbWriteRepository _writeRepository;
 
         public FilmsController(IMongoDbWriteRepository writeRepository)
@@ -25,26 +22,25 @@ namespace Interns2.AppServices.API.Controllers
             _writeRepository = writeRepository;
         }
 
-
         // GET: api/values
         [HttpGet]
-        public IActionResult Get([FromQuery]GetListFilmRequest request)
+        public IActionResult Get([FromQuery] GetListFilmsRequest request)
         {
             var filter = Builders<Film>.Filter.Empty;
-            
-            var films = _writeRepository.Find(filter).ToList().Take(request.Quantity);
 
-            if(request.IsNewest.HasValue && request.IsNewest.Value)
+            var films = _writeRepository.Find(filter).ToList();
+
+            if (request.IsNewest.HasValue && request.IsNewest.Value)
             {
                 films = films.OrderBy(n => n.DatePublish).ToList();
             }
 
-            if(request.IsHighestRate.HasValue && request.IsHighestRate.Value)
+            if (request.IsHighestRate.HasValue && request.IsHighestRate.Value)
             {
                 films = films.OrderBy(n => n.Rate).ToList();
             }
 
-            return Ok(films);
+            return Ok(films.Take(request.Quantity));
         }
 
         // GET api/values/5
@@ -52,34 +48,37 @@ namespace Interns2.AppServices.API.Controllers
         public IActionResult Get(string id)
         {
             var film = _writeRepository.Get<Film>(id);
-            //Builders<Film>.Filter.Eq("Id", id);
-            //var filter= Builder
-            return Ok();
+            return Ok(film);
         }
 
         // POST api/values
         [HttpPost]
         public IActionResult Post([FromBody]Film film)
         {
-            //film.Id = Guid.NewGuid().ToString();
+            if (!ModelState.IsValid)
+            {
+                return new UnprocessableEntityObjectResult(ModelState);
+            }
+            film.Id = Guid.NewGuid().ToString();
             _writeRepository.Create(film);
             return Ok();
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public IActionResult Put(string id, [FromBody]Film value)
+        public IActionResult Put(string id, [FromBody]Film film)
         {
-            //var film = _writeRepository.Get<Film>(id);
-            _writeRepository.Replace(value);
-            return Ok();
+            var film2 = _writeRepository.Get<Film>(film.Id);
+            _writeRepository.Replace(film);
+            return Ok(film2);
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(string id)
         {
-
+            //var film = _writeRepository.Get<Film>(id);
+            _writeRepository.Delete<Film>(id);
             return Ok();
         }
     }

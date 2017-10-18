@@ -27,15 +27,23 @@ namespace Interns2.AppServices.API
         {
             services.AddMvc();
 
-            services.AddSingleton<IMongoDbWriteRepository>(sp =>
-            {
-                return new MongoDbWriteRepository("mongodb://nguyensonuser:Domino00@ds117485.mlab.com:17485/nguyenson");
-            });
-
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
             });
+
+            services.AddSingleton<IMongoDbWriteRepository>(sp =>
+            {
+                return new MongoDbWriteRepository("mongodb://interns2:interns2@ds117485.mlab.com:17485/interns2");
+            });
+
+            // Add Cors
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +54,7 @@ namespace Interns2.AppServices.API
                 app.UseDeveloperExceptionPage();
             }
 
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
@@ -54,7 +63,14 @@ namespace Interns2.AppServices.API
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
 
+            app.UseCors("MyPolicy");
+
             app.UseMvc();
+
+            app.UseDefaultFiles(new DefaultFilesOptions
+            {
+                DefaultFileNames = new List<string> { "index.html" }
+            });
         }
     }
 }
