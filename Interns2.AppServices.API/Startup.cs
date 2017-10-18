@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Interns2.Infrastructure.MongoDb;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace Interns2.AppServices.API
 {
@@ -30,6 +31,20 @@ namespace Interns2.AppServices.API
             {
                 return new MongoDbWriteRepository("mongodb://interns2:interns2@ds117485.mlab.com:17485/interns2");
             });
+
+            // service function of swashbuckle package
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "Candidate APIs", Version = "v1" });
+            });
+
+            // Add Cors
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,6 +54,17 @@ namespace Interns2.AppServices.API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            // The way use swashbuckle package
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Candidate APIs V1");
+            });
+
+            app.UseCors("MyPolicy");
 
             app.UseMvc();
         }

@@ -1,7 +1,24 @@
 ﻿@{
-    ViewData["Title"] = "About";
+    ViewData["Title"] = "Films Hot";
 }
 <h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
 
 <p>Use this area to provide additional information.</p>
+
+@using Interns2.Domain.Domains
+@model  IEnumerable<Film>
+
+@{
+    var d = @Model.ToList();
+}
+<div>
+    <ul class="o-container">
+        @foreach (var item in d)
+        {
+            <li class="o-card">
+                <span><img src="http://via.placeholder.com/200x250/F50AAA"></span>
+                <span>@item.Title</span>
+            </li>
+        }
+    </ul>
+</div>
