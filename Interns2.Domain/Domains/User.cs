@@ -13,6 +13,7 @@ namespace Interns2.Domain.Domains
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Password is required")]
+
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Full name is required")]
