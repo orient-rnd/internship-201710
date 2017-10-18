@@ -12,9 +12,17 @@ namespace Interns2.Domain.Domains
     [BsonIgnoreExtraElements]
     public class Film : AuditableEntityBase, IAggregateRoot
     {
-        [StringLength(100)]
-        [Required]
-        public string Title { get; set; }
+        private string title;
+
+        public string GetTitle()
+        {
+            return title;
+        }
+
+        public void SetTitle(string value)
+        {
+            title = value;
+        }
 
         [StringLength(360)]
         [Required]
