@@ -68,6 +68,10 @@ namespace Interns2.AppServices.API.Controllers
         [HttpPut("{id}")]
         public IActionResult Put(string id, [FromBody]Film film)
         {
+            if (!ModelState.IsValid)
+            {
+                return new UnprocessableEntityObjectResult(ModelState);
+            }
             var film2 = _writeRepository.Get<Film>(film.Id);
             _writeRepository.Replace(film);
             return Ok(film2);
