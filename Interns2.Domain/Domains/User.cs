@@ -23,5 +23,9 @@ namespace Interns2.Domain.Domains
         public string Fullname { get; set; }
 
         public string Address { get; set; }
+
+        public string AccessToken { get; set; } = Guid.NewGuid().ToString();
+
+        public bool Subscription { get; set; }
     }
 }
