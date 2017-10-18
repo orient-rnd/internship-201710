@@ -50,7 +50,7 @@ namespace Interns2.AppServices.API.Controllers
         public IActionResult Get(string id)
         {
             var film = _writeRepository.Get<Film>(id);
-            return Ok();
+            return Ok(film);
         }
 
         // POST api/values
@@ -66,14 +66,19 @@ namespace Interns2.AppServices.API.Controllers
         [HttpPut("{id}")]
         public IActionResult Put(string id, [FromBody]Film film)
         {
+            //_writeRepository.Replace(film);
+
+            var filter = _writeRepository.Get<Film>(id);
             _writeRepository.Replace(film);
-            return Ok();
+
+            return Ok(filter);
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(string id)
         {
+            _writeRepository.Delete<Film>(id);
             return Ok();
         }
     }
