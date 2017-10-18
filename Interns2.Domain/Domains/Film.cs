@@ -6,7 +6,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
-using System.ComponentModel.DataAnnotations;
 
 namespace Interns2.Domain.Domains
 {
@@ -42,5 +41,6 @@ namespace Interns2.Domain.Domains
         public List<string> Actors { get; set; } = new List<string>();
 
         public FilmStatus Status { get; set; }
+
     }
 }
