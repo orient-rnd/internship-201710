@@ -8,7 +8,7 @@ using Interns2.Domain.Domains;
 
 namespace Interns2.AppServices.API.Controllers
 {
-    [Route("api/[Controller]")]
+    [Route("api/[controller]")]
     public class ValuesController : Controller
     {
         private readonly IMongoDbWriteRepository _writeRepository;
