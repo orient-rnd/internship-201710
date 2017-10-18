@@ -12,6 +12,7 @@ namespace Interns2.Domain.Domains
     [BsonIgnoreExtraElements]
     public class Film : AuditableEntityBase, IAggregateRoot
     {
+<<<<<<< HEAD
         private string title;
 
         public string GetTitle()
@@ -26,15 +27,25 @@ namespace Interns2.Domain.Domains
 
         [StringLength(360)]
         [Required]
+=======
+        [Required(ErrorMessage = "Film's title is required")]
+        [MaxLength(100)]
+>>>>>>> a60e1a97eca9eaf0b59b42fbde9f3548bd113ac9
         public string Title { get; set; }
-        
+
+        [MaxLength(360)]
         public string Description { get; set; }
 
         public List<FilmType> Types { get; set; } = new List<FilmType>();
 
         public FilmType Type { get; set; }
+<<<<<<< HEAD
         
 
+=======
+
+        [Required(ErrorMessage = "Date of publishing is required")]
+>>>>>>> a60e1a97eca9eaf0b59b42fbde9f3548bd113ac9
         public DateTime? DatePublish { get; set; }
 
         [RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$")]
@@ -43,14 +54,18 @@ namespace Interns2.Domain.Domains
 
         [Range(0, 10)]
         [BsonRepresentation(BsonType.Int64, AllowTruncation = true)]
+        [Range(1, 10, ErrorMessage = "Film's rate must be between 1 and 10")]
         public int Rate { get; set; }
 
+        [Required(ErrorMessage = "Film's image is required")]
         public string Image { get; set; }
 
-        public string LinkFilm { get; set; }
+        [Required(ErrorMessage = "Film's link is required")]
+        public string LinkFilm { get; set; } //luu link phim
 
         public List<string> Actors { get; set; } = new List<string>();
 
         public FilmStatus Status { get; set; }
+
     }
 }
