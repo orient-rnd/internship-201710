@@ -3,9 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace Interns2.Domain.Domains
 {
+    [BsonIgnoreExtraElements]
     public class User : AuditableEntityBase, IAggregateRoot
     {
         [Required(ErrorMessage = "Email is required")]
