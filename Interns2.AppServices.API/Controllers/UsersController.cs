@@ -54,8 +54,11 @@ namespace Interns2.AppServices.API.Controllers
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public IActionResult Put(string id, [FromBody]User user)
         {
+            var user2 = _writeRepository.Get<User>(user.Id);
+            _writeRepository.Replace(user);
+            return Ok(user2);
         }
 
         // DELETE api/values/5
