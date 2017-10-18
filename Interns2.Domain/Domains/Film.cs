@@ -28,9 +28,10 @@ namespace Interns2.Domain.Domains
 
         public string Image { get; set; }
 
+        public string LinkFilm { get; set; }
+
         public List<string> Actors { get; set; } = new List<string>();
 
         public FilmStatus Status { get; set; }
-
     }
 }

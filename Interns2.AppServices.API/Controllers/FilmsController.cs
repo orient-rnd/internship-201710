@@ -68,8 +68,9 @@ namespace Interns2.AppServices.API.Controllers
         [HttpPut("{id}")]
         public IActionResult Put(string id, [FromBody]Film film)
         {
+            var film2 = _writeRepository.Get<Film>(film.Id);
             _writeRepository.Replace(film);
-            return Ok();
+            return Ok(film2);
         }
 
         // DELETE api/values/5
