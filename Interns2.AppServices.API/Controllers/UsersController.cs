@@ -24,10 +24,10 @@ namespace Interns2.AppServices.API.Controllers
 
         // GET: api/values
         [HttpGet]
-        public IActionResult Get([FromQuery] User users)
+        public IActionResult Get()
         {
-            var filter = Builders<User>.Filter.Empty;            
-            var inf = _writeRepository.Find<User>(filter).ToList();
+            //var filter = Builders<User>.Filter.Empty;            
+            var inf = _writeRepository.Find<User>().ToList();
             return Ok(inf);
         }
 
@@ -56,7 +56,7 @@ namespace Interns2.AppServices.API.Controllers
         [HttpPut("{id}")]
         public IActionResult Put(string id, [FromBody]User user)
         {
-            var user1 = _writeRepository.Get<User>(user.Id);
+            _writeRepository.Get<User>(user.Id);
             _writeRepository.Replace(user);
             return Ok(user);
         }
