@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Interns2.Domain.Domains;
 using MongoDB.Driver;
 using Interns2.Infrastructure.MongoDb;
+using Interns2.AppServices.API.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -40,8 +41,15 @@ namespace Interns2.AppServices.API.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public IActionResult Post([FromBody]User user)
         {
+            if(!ModelState.IsValid)
+            {
+                return new UnprocessableEntityObjectResult(ModelState);
+            }
+            user.Id = Guid.NewGuid().ToString();
+            _writeRepository.Create(user);
+            return Ok();
         }
 
         // PUT api/values/5
