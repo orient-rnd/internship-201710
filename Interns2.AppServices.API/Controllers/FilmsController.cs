@@ -38,7 +38,7 @@ namespace Interns2.AppServices.API.Controllers
             if (request.IsHighestRate.HasValue && request.IsHighestRate.Value)
             {
                 films = films.OrderBy(n => n.Rate).ToList();
-            }
+            }            
             var abc = 600;
             return Ok(films.Take(abc));
         }
