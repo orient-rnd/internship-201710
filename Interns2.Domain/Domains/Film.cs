@@ -24,12 +24,15 @@ namespace Interns2.Domain.Domains
             title = value;
         }
 
-        [StringLength(360)]
+        [StringLength(100)]
         [Required]
         public string Title { get; set; }
-        
+
+        [StringLength(360)]
+        [Required]
         public string Description { get; set; }
 
+        [Required]
         public List<FilmType> Types { get; set; } = new List<FilmType>();
 
         public FilmType Type { get; set; }
@@ -47,6 +50,7 @@ namespace Interns2.Domain.Domains
 
         public string Image { get; set; }
 
+        [Required]
         public string LinkFilm { get; set; }
 
         public List<string> Actors { get; set; } = new List<string>();
