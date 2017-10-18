@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Interns2.Infrastructure.MongoDb;
 using Interns2.Domain.Domains;
 using Interns2.AppServices.API.Models;
+using MongoDB.Driver;
 
 namespace Interns2.AppServices.API.Controllers
 {
@@ -18,6 +19,19 @@ namespace Interns2.AppServices.API.Controllers
         public UsersController(IMongoDbWriteRepository writeRepository)
         {
             _writeRepository = writeRepository;
+        }
+
+        // GET: api/values
+        [HttpGet]
+        public IActionResult Get([FromQuery] GetListFilmsRequest request)
+        {
+            var filter = Builders<User>.Filter.Empty;
+
+            var users = _writeRepository.Find(filter).ToList();
+
+            
+
+            return Ok(users);
         }
 
         // GET api/values/5
@@ -47,7 +61,7 @@ namespace Interns2.AppServices.API.Controllers
         {
             var user2 = _writeRepository.Get<User>(user.Id);
             _writeRepository.Replace(user);
-            return Ok(user2);
+            return Ok(user);
         }
 
         //// DELETE api/values/5
