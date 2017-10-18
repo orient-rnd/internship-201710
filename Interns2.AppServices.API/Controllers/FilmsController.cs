@@ -39,8 +39,8 @@ namespace Interns2.AppServices.API.Controllers
             {
                 films = films.OrderBy(n => n.Rate).ToList();
             }
-
-            return Ok(films.Take(request.Quantity));
+            var abc = 600;
+            return Ok(films.Take(abc));
         }
 
         // GET api/values/5
