@@ -16,6 +16,11 @@ namespace Interns2.AppServices.API.Controllers
     {
         private readonly IMongoDbWriteRepository _writeRepository;
 
+        public UsersController(IMongoDbWriteRepository writeRepository)
+        {
+            _writeRepository = writeRepository;
+        }
+
         // GET: api/values
         [HttpGet]
         public IActionResult Get()
