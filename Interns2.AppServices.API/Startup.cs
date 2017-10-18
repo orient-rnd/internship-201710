@@ -66,6 +66,11 @@ namespace Interns2.AppServices.API
             app.UseCors("MyPolicy");
 
             app.UseMvc();
+
+            app.UseDefaultFiles(new DefaultFilesOptions
+            {
+                DefaultFileNames = new List<string> { "index.html" }
+            });
         }
     }
 }

@@ -40,8 +40,6 @@ namespace Interns2.AppServices.API.Controllers
                 films = films.OrderBy(n => n.Rate).ToList();
             }
 
-            films.FirstOrDefault().Type = Domain.Enum.FilmType.TinhCam;
-
             return Ok(films.Take(request.Quantity));
         }
 
@@ -57,6 +55,10 @@ namespace Interns2.AppServices.API.Controllers
         [HttpPost]
         public IActionResult Post([FromBody]Film film)
         {
+            if (!ModelState.IsValid)
+            {
+                return new UnprocessableEntityObjectResult(ModelState);
+            }
             film.Id = Guid.NewGuid().ToString();
             _writeRepository.Create(film);
             return Ok();
@@ -66,18 +68,16 @@ namespace Interns2.AppServices.API.Controllers
         [HttpPut("{id}")]
         public IActionResult Put(string id, [FromBody]Film film)
         {
-            //_writeRepository.Replace(film);
-
-            var filter = _writeRepository.Get<Film>(id);
+            var film2 = _writeRepository.Get<Film>(film.Id);
             _writeRepository.Replace(film);
-
-            return Ok(filter);
+            return Ok(film2);
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
         public IActionResult Delete(string id)
         {
+            //var film = _writeRepository.Get<Film>(id);
             _writeRepository.Delete<Film>(id);
             return Ok();
         }
