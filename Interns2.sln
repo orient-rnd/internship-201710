@@ -7,15 +7,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. AppServices", "1. AppSer
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Infrastructure", "2. Infrastructure", "{36EB888D-C52F-4975-B6BC-91C7C2F50F61}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interns2.Infrastructure.MongoDb", "Interns2.Infrastructure.MongoDb\Interns2.Infrastructure.MongoDb.csproj", "{66045963-D32C-45B9-BCD5-E4A91267E5CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interns2.Infrastructure.MongoDb", "Interns2.Infrastructure.MongoDb\Interns2.Infrastructure.MongoDb.csproj", "{66045963-D32C-45B9-BCD5-E4A91267E5CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interns2.AppServices.MVC", "Interns2.AppServices.MVC\Interns2.AppServices.MVC.csproj", "{55593750-CCD6-45B5-89DA-1B3C99C0F797}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interns2.AppServices.MVC", "Interns2.AppServices.MVC\Interns2.AppServices.MVC.csproj", "{55593750-CCD6-45B5-89DA-1B3C99C0F797}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interns2.AppServices.API", "Interns2.AppServices.API\Interns2.AppServices.API.csproj", "{B9B2E10C-AB22-488B-829F-0E6DA7044FE4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interns2.AppServices.API", "Interns2.AppServices.API\Interns2.AppServices.API.csproj", "{B9B2E10C-AB22-488B-829F-0E6DA7044FE4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Domain", "3. Domain", "{E9D5C883-2049-4FC3-872F-7F06D540A899}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interns2.Domain", "Interns2.Domain\Interns2.Domain.csproj", "{01A4BBC6-9C62-41D9-84F7-6A8A941C69AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interns2.Domain", "Interns2.Domain\Interns2.Domain.csproj", "{01A4BBC6-9C62-41D9-84F7-6A8A941C69AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interns2.AppServices.FlashCard", "Interns2.AppServices.FlashCard\Interns2.AppServices.FlashCard.csproj", "{DC480FD1-6D0B-4D49-BBA4-2FFB64CDD11D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. UnitTest", "4. UnitTest", "{D9D34E1A-87BE-447D-A50E-D273F087AE86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{43634178-018D-4DEB-B72F-C589C8BB7858}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +45,14 @@ Global
 		{01A4BBC6-9C62-41D9-84F7-6A8A941C69AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01A4BBC6-9C62-41D9-84F7-6A8A941C69AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01A4BBC6-9C62-41D9-84F7-6A8A941C69AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC480FD1-6D0B-4D49-BBA4-2FFB64CDD11D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC480FD1-6D0B-4D49-BBA4-2FFB64CDD11D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC480FD1-6D0B-4D49-BBA4-2FFB64CDD11D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC480FD1-6D0B-4D49-BBA4-2FFB64CDD11D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43634178-018D-4DEB-B72F-C589C8BB7858}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43634178-018D-4DEB-B72F-C589C8BB7858}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43634178-018D-4DEB-B72F-C589C8BB7858}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43634178-018D-4DEB-B72F-C589C8BB7858}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +62,8 @@ Global
 		{55593750-CCD6-45B5-89DA-1B3C99C0F797} = {EB2999AD-4415-4C08-9C92-BD9145932023}
 		{B9B2E10C-AB22-488B-829F-0E6DA7044FE4} = {EB2999AD-4415-4C08-9C92-BD9145932023}
 		{01A4BBC6-9C62-41D9-84F7-6A8A941C69AB} = {E9D5C883-2049-4FC3-872F-7F06D540A899}
+		{DC480FD1-6D0B-4D49-BBA4-2FFB64CDD11D} = {EB2999AD-4415-4C08-9C92-BD9145932023}
+		{43634178-018D-4DEB-B72F-C589C8BB7858} = {D9D34E1A-87BE-447D-A50E-D273F087AE86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {24CD2DF4-24A5-4A7E-85DB-5615DBC9AA6F}
