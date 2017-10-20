@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Interns.Infrastructure.Identity.MongoDb\Interns.Infrastructure.Identity.MongoDb.csproj" />
     <ProjectReference Include="..\Interns2.Infrastructure.MongoDb\Interns2.Infrastructure.MongoDb.csproj" />
   </ItemGroup>
 

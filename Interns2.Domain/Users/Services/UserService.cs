@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
-using Interns2.Domain.Domains;
+using Interns2.Domain.Users.Models;
 
-namespace Interns2.AppServices.FlashCard.Services
+namespace BomBiEn.Domain.Users.Services
 {
     public class UserService : IUserService
     {
@@ -82,12 +82,45 @@ namespace Interns2.AppServices.FlashCard.Services
 
         public string GenerateAppToken(User user)
         {
-            if (user.AccessToken == null)
+            if (user.AppTokens == null)
             {
-                user.AccessToken = Guid.NewGuid().ToString();
+                user.AppTokens = new List<UserAppToken>();
             }
 
-            return user.AccessToken;
+            var validAppToken = user.AppTokens.FirstOrDefault(it => it.ExpiryDate >= DateTime.UtcNow);
+            if (validAppToken == null)
+            {
+                validAppToken = new UserAppToken()
+                {
+                    UserId = user.Id,
+                    Token = Guid.NewGuid().ToString("N"),
+                    ExpiryDate = DateTime.UtcNow.AddDays(60)
+                };
+
+                user.AppTokens.Add(validAppToken);
+            }
+            else
+            {
+                if (String.IsNullOrWhiteSpace(validAppToken.Token))
+                {
+                    validAppToken.Token = Guid.NewGuid().ToString("N");
+                }
+
+                validAppToken.ExpiryDate = DateTime.UtcNow.AddDays(60);
+            }
+
+            var result = _userManager.UpdateAsync(user).Result;
+            if (!result.Succeeded)
+            {
+                //throw new DomainException(result.Errors
+                //    .Select(it => new DomainExceptionError()
+                //    {
+                //        Code = it.Code,
+                //        Description = it.Description
+                //    }));
+            }
+
+            return validAppToken.Token;
         }
     }
 }

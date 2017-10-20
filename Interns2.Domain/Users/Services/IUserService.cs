@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
-using Interns2.Domain.Domains;
+using Interns2.Domain.Users.Models;
 
-namespace Interns2.AppServices.FlashCard.Services
+namespace BomBiEn.Domain.Users.Services
 {
     public interface IUserService
     {

@@ -8,10 +8,13 @@ using Interns2.Infrastructure.MongoDb;
 using Interns2.Domain.Domains;
 using Interns2.AppServices.API.Models;
 using MongoDB.Driver;
+using Interns2.AppServices.API.Filters;
+using Interns2.Domain.Users.Models;
 
 namespace Interns2.AppServices.API.Controllers
 {
     [Route("users")]
+    [ValidateModel]    
     public class UsersController : Controller
     {
         private readonly IMongoDbWriteRepository _writeRepository;
@@ -29,7 +32,7 @@ namespace Interns2.AppServices.API.Controllers
 
             var users = _writeRepository.Find(filter).ToList();
 
-            
+
 
             return Ok(users);
         }
@@ -46,10 +49,10 @@ namespace Interns2.AppServices.API.Controllers
         [HttpPost]
         public IActionResult Post([FromBody]User user)
         {
-            if (!ModelState.IsValid)
-            {
-                return new UnprocessableEntityObjectResult(ModelState);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return new UnprocessableEntityObjectResult(ModelState);
+            //}
             user.Id = Guid.NewGuid().ToString();
             _writeRepository.Create(user);
             return Ok();

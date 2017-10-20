@@ -5,27 +5,44 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Interns2.AppServices.FlashCard.Models;
-using Interns2.AppServices.FlashCard.Services;
 using Interns2.Domain.Domains;
+using Microsoft.AspNetCore.Identity;
+using Interns2.Infrastructure.MongoDb;
+using Interns2.Domain.Users.Models;
+using BomBiEn.Domain.Users.Services;
 
 namespace Interns2.AppServices.FlashCard.Controllers
 {
     public class HomeController : Controller
     {
         private readonly IUserService _userService;
+        private readonly IMongoDbWriteRepository _writeRepository;
 
-        public HomeController(IUserService UserService)
+        public HomeController(IMongoDbWriteRepository writeRepository, IUserService userService)
         {
-            _userService = UserService;
+            _writeRepository = writeRepository;
+            _userService = userService;
         }
 
         public IActionResult Index()
         {
-            var user = new User();
-            user.Email = "nguyenhuuloc304@gmail.com";
-            user.Password = "123456aA@";
-            _userService.SignUpAsync(user, user.Password);
+            //var user = new Domain.Users.Models.User();
+            //user.Email = 
+            //_userService.SignUpAsync(user, "123456aA@");
             return View();
+        }
+
+        // POST api/values
+        [HttpPost]
+        public IActionResult Post([FromBody]User user)
+        {
+            //if (!ModelState.IsValid)
+            //{
+            //    return new UnprocessableEntityObjectResult(ModelState);
+            //}
+            user.Id = Guid.NewGuid().ToString();
+            _writeRepository.Create(user);
+            return Ok();
         }
 
         public IActionResult About()

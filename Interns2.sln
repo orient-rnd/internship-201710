@@ -17,11 +17,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Domain", "3. Domain", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interns2.Domain", "Interns2.Domain\Interns2.Domain.csproj", "{01A4BBC6-9C62-41D9-84F7-6A8A941C69AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interns2.AppServices.FlashCard", "Interns2.AppServices.FlashCard\Interns2.AppServices.FlashCard.csproj", "{DC480FD1-6D0B-4D49-BBA4-2FFB64CDD11D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interns2.AppServices.FlashCard", "Interns2.AppServices.FlashCard\Interns2.AppServices.FlashCard.csproj", "{DC480FD1-6D0B-4D49-BBA4-2FFB64CDD11D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. UnitTest", "4. UnitTest", "{D9D34E1A-87BE-447D-A50E-D273F087AE86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{43634178-018D-4DEB-B72F-C589C8BB7858}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{43634178-018D-4DEB-B72F-C589C8BB7858}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interns.Infrastructure.Identity.MongoDb", "Interns.Infrastructure.Identity.MongoDb\Interns.Infrastructure.Identity.MongoDb.csproj", "{70D63741-8619-4C33-8A68-FA4E5ECF90DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,10 @@ Global
 		{43634178-018D-4DEB-B72F-C589C8BB7858}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43634178-018D-4DEB-B72F-C589C8BB7858}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43634178-018D-4DEB-B72F-C589C8BB7858}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70D63741-8619-4C33-8A68-FA4E5ECF90DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70D63741-8619-4C33-8A68-FA4E5ECF90DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70D63741-8619-4C33-8A68-FA4E5ECF90DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70D63741-8619-4C33-8A68-FA4E5ECF90DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +70,7 @@ Global
 		{01A4BBC6-9C62-41D9-84F7-6A8A941C69AB} = {E9D5C883-2049-4FC3-872F-7F06D540A899}
 		{DC480FD1-6D0B-4D49-BBA4-2FFB64CDD11D} = {EB2999AD-4415-4C08-9C92-BD9145932023}
 		{43634178-018D-4DEB-B72F-C589C8BB7858} = {D9D34E1A-87BE-447D-A50E-D273F087AE86}
+		{70D63741-8619-4C33-8A68-FA4E5ECF90DF} = {36EB888D-C52F-4975-B6BC-91C7C2F50F61}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {24CD2DF4-24A5-4A7E-85DB-5615DBC9AA6F}
