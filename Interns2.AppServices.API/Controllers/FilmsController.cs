@@ -40,7 +40,11 @@ namespace Interns2.AppServices.API.Controllers
                 films = films.OrderBy(n => n.Rate).ToList();
             }
 
+<<<<<<< HEAD
             return Ok(films.Take(50));
+=======
+            return Ok(films.Take(request.Quantity));
+>>>>>>> mR.Son
         }
 
         // GET api/values/5
