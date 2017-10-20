@@ -14,12 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Interns2.Domain\Interns2.Domain.csproj" />
-    <ProjectReference Include="..\Interns2.Infrastructure.MongoDb\Interns2.Infrastructure.MongoDb.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Filters\" />
-    <Folder Include="NewFolder\" />
   </ItemGroup>
 
 </Project>
