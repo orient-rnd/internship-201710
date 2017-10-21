@@ -7,12 +7,15 @@ using Interns2.Domain.Domains;
 using Interns2.AppServices.API.Models;
 using Interns2.Infrastructure.MongoDb;
 using MongoDB.Driver;
+using Interns2.AppServices.API.Filters;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Interns2.AppServices.API.Controllers
 {
     [Route("api/User")]
+    [ActionFilter]
+    [TypeFilter(typeof(ExceptionFilter))]
     public class UsersController : Controller
     {
         private readonly IMongoDbWriteRepository _writeRepository;
@@ -43,10 +46,12 @@ namespace Interns2.AppServices.API.Controllers
         [HttpPost]
         public IActionResult Post([FromBody]User user)
         {
-            if (!ModelState.IsValid)
-            {
-                return new UnprocessableEntityObjectResult(ModelState);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return new UnprocessableEntityObjectResult(ModelState);
+            //}
+            //dong gay loi de test Exception
+            //throw new InvalidOperationException("Invalid operation.");
             user.Id = Guid.NewGuid().ToString();
             _writeRepository.Create(user);
             return Ok(user);
