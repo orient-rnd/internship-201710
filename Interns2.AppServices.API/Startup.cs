@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Interns2.Infrastructure.MongoDb;
 using Swashbuckle.AspNetCore.Swagger;
+using Interns2.AppServices.API.Filters;
 
 namespace Interns2.AppServices.API
 {
@@ -25,7 +26,8 @@ namespace Interns2.AppServices.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+        
+            services.AddMvc(mvcOptions => mvcOptions.Filters.Add(new CustomExceptionFilterAttribute()));
 
             services.AddSwaggerGen(c =>
             {

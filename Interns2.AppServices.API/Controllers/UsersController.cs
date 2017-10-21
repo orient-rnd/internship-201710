@@ -8,10 +8,12 @@ using Interns2.Infrastructure.MongoDb;
 using Interns2.Domain.Domains;
 using Interns2.AppServices.API.Models;
 using MongoDB.Driver;
+using Interns2.AppServices.API.Filters;
 
 namespace Interns2.AppServices.API.Controllers
 {
     [Route("users")]
+    [ValidateModelAttribute]
     public class UsersController : Controller
     {
         private readonly IMongoDbWriteRepository _writeRepository;
@@ -43,13 +45,16 @@ namespace Interns2.AppServices.API.Controllers
         }
 
         // POST api/values
+
+        [TypeFilter(typeof(CustomExceptionFilterAttribute))]
         [HttpPost]
         public IActionResult Post([FromBody]User user)
         {
-            if (!ModelState.IsValid)
-            {
-                return new UnprocessableEntityObjectResult(ModelState);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return new UnprocessableEntityObjectResult(ModelState);
+            //}
+            //throw new InvalidOperationException("Invalid operaton.");
             user.Id = Guid.NewGuid().ToString();
             _writeRepository.Create(user);
             return Ok();
