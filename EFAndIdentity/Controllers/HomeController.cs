@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using EFAndIdentity.Models;
+using EFAndIdentity.Entities;
 
 namespace EFAndIdentity.Controllers
 {
@@ -12,6 +13,13 @@ namespace EFAndIdentity.Controllers
     {
         public IActionResult Index()
         {
+            var db = new JobContext();
+            var newJob = new Job();
+            db.Job.Add(newJob);
+
+            var job = db.Job.FirstOrDefault(n => n.JobName == "abc");
+            job.Description = "dbcd";
+            db.SaveChanges();             
             return View();
         }
 
