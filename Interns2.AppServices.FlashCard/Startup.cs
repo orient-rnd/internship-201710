@@ -27,8 +27,9 @@ namespace Interns2.AppServices.FlashCard
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            // Add framework services.
             services.AddIdentity<User, Role>(
                 identityOptions =>
                 {
@@ -51,8 +52,7 @@ namespace Interns2.AppServices.FlashCard
                     //identityOptions.Cookies.ApplicationCookie.LoginPath = "/Account/Login";
                     //identityOptions.Cookies.ApplicationCookie.LogoutPath = "/Account/Logout";
                 })
-                .AddDefaultTokenProviders();
-
+                .AddDefaultTokenProviders(); 
             services.AddMvc();
 
             services.AddSingleton<IMongoDbWriteRepository>(sp =>
@@ -83,6 +83,16 @@ namespace Interns2.AppServices.FlashCard
                         (p, c) => c.Resolve<IMongoDbWriteRepository>().GetCollection<Role>())
                 })
                 .As<IRoleStore<Role>>();
+
+            var container = containerBuilder.Build();
+
+            // Build() or Update() method can only be called once on a ContainerBuilder.
+            containerBuilder = new ContainerBuilder();
+            //ConfigureAutoMapperServices(containerBuilder);
+            containerBuilder.Update(container);
+
+            var provider = new AutofacServiceProvider(container);
+            return provider;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
