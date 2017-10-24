@@ -40,7 +40,7 @@ namespace Interns2.AppServices.MVC.Controllers
             //}
 
             //films.FirstOrDefault().Type = Domain.Enum.FilmType.TinhCam;
-
+            ViewBag.extraData = films;
             return View(films);
         }
 

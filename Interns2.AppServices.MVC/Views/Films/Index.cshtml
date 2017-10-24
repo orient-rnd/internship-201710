@@ -2,11 +2,24 @@
 @model List<Film>
 @{
     ViewData["Title"] = "Home Page";
+    var extra = (List<Film>)ViewBag.extraData;
 }
 
 <div>
     <ul>
         @foreach (var item in Model)
+        {
+            <li>
+                <a href="~/Films/Detail/@item.Id">@item.Title</a>  - <span>@item.Description</span> -<span>@item.DatePublish</span>
+            </li>
+        }
+    </ul>
+</div>
+
+<p>Viewbag</p>
+<div>
+    <ul>
+        @foreach (var item in extra)
         {
             <li>
                 <a href="~/Films/Detail/@item.Id">@item.Title</a>  - <span>@item.Description</span> -<span>@item.DatePublish</span>

@@ -30,29 +30,29 @@ namespace Interns2.AppServices.FlashCard
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services.AddIdentity<User, Role>(
-                identityOptions =>
-                {
-                    // Email settings
-                    identityOptions.User.RequireUniqueEmail = true;
+            //services.AddIdentity<User, Role>(
+            //    identityOptions =>
+            //    {
+            //        // Email settings
+            //        identityOptions.User.RequireUniqueEmail = true;
 
-                    // Password settings
-                    identityOptions.Password.RequiredLength = 8;
-                    identityOptions.Password.RequireDigit = false;
-                    identityOptions.Password.RequireNonAlphanumeric = false;
-                    identityOptions.Password.RequireUppercase = false;
-                    identityOptions.Password.RequireLowercase = false;
+            //        // Password settings
+            //        identityOptions.Password.RequiredLength = 8;
+            //        identityOptions.Password.RequireDigit = false;
+            //        identityOptions.Password.RequireNonAlphanumeric = false;
+            //        identityOptions.Password.RequireUppercase = false;
+            //        identityOptions.Password.RequireLowercase = false;
 
-                    // Lockout settings
-                    identityOptions.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
-                    identityOptions.Lockout.MaxFailedAccessAttempts = 10;
+            //        // Lockout settings
+            //        identityOptions.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
+            //        identityOptions.Lockout.MaxFailedAccessAttempts = 10;
 
-                    // Cookie settings
-                    //identityOptions.Cookies.ApplicationCookie.ExpireTimeSpan = TimeSpan.FromDays(365);
-                    //identityOptions.Cookies.ApplicationCookie.LoginPath = "/Account/Login";
-                    //identityOptions.Cookies.ApplicationCookie.LogoutPath = "/Account/Logout";
-                })
-                .AddDefaultTokenProviders(); 
+            //        // Cookie settings
+            //        //identityOptions.Cookies.ApplicationCookie.ExpireTimeSpan = TimeSpan.FromDays(365);
+            //        //identityOptions.Cookies.ApplicationCookie.LoginPath = "/Account/Login";
+            //        //identityOptions.Cookies.ApplicationCookie.LogoutPath = "/Account/Logout";
+            //    })
+            //    .AddDefaultTokenProviders(); 
             services.AddMvc();
 
             services.AddSingleton<IMongoDbWriteRepository>(sp =>

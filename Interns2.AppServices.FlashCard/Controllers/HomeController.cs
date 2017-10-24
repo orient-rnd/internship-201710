@@ -15,13 +15,13 @@ namespace Interns2.AppServices.FlashCard.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IUserService _userService;
-        private readonly IMongoDbWriteRepository _writeRepository;
+        //private readonly IUserService _userService;
+        //private readonly IMongoDbWriteRepository _writeRepository;
 
-        public HomeController(IMongoDbWriteRepository writeRepository, IUserService userService)
+        public HomeController(IMongoDbWriteRepository writeRepository)
         {
-            _writeRepository = writeRepository;
-            _userService = userService;
+            //_writeRepository = writeRepository;
+            //_userService = userService;
         }
 
         public IActionResult Index()
@@ -41,7 +41,7 @@ namespace Interns2.AppServices.FlashCard.Controllers
             //    return new UnprocessableEntityObjectResult(ModelState);
             //}
             user.Id = Guid.NewGuid().ToString();
-            _writeRepository.Create(user);
+            //_writeRepository.Create(user);
             return Ok();
         }
 

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace EFAndIdentity
 {
@@ -36,6 +37,11 @@ namespace EFAndIdentity
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            //CookieAuthenticationOptions options = new CookieAuthenticationOptions();
+            //options.AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie;
+            //options.LoginPath = new PathString("/account/login");
+            //app.UseCookieAuthentication(options);
 
             app.UseStaticFiles();
 
