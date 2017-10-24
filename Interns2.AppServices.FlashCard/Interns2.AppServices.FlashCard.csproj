@@ -6,9 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Angular\**" />
     <Compile Remove="Services\**" />
+    <Content Remove="Angular\**" />
     <Content Remove="Services\**" />
+    <EmbeddedResource Remove="Angular\**" />
     <EmbeddedResource Remove="Services\**" />
+    <None Remove="Angular\**" />
     <None Remove="Services\**" />
   </ItemGroup>
 
