@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.15
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. AppServices", "1. AppServices", "{EB2999AD-4415-4C08-9C92-BD9145932023}"
 EndProject
@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestProject1", "UnitTes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interns.Infrastructure.Identity.MongoDb", "Interns.Infrastructure.Identity.MongoDb\Interns.Infrastructure.Identity.MongoDb.csproj", "{70D63741-8619-4C33-8A68-FA4E5ECF90DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFAndIdentity", "EFAndIdentity\EFAndIdentity.csproj", "{D0AAE4A8-F617-4BB8-A10E-ADB2D7854AEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFAndIdentity", "EFAndIdentity\EFAndIdentity.csproj", "{D0AAE4A8-F617-4BB8-A10E-ADB2D7854AEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityCore", "IdentityCore\IdentityCore.csproj", "{05A2E6CF-FF06-409D-AC60-4C047F13E5A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +67,10 @@ Global
 		{D0AAE4A8-F617-4BB8-A10E-ADB2D7854AEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0AAE4A8-F617-4BB8-A10E-ADB2D7854AEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0AAE4A8-F617-4BB8-A10E-ADB2D7854AEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05A2E6CF-FF06-409D-AC60-4C047F13E5A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05A2E6CF-FF06-409D-AC60-4C047F13E5A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05A2E6CF-FF06-409D-AC60-4C047F13E5A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05A2E6CF-FF06-409D-AC60-4C047F13E5A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,6 +84,7 @@ Global
 		{43634178-018D-4DEB-B72F-C589C8BB7858} = {D9D34E1A-87BE-447D-A50E-D273F087AE86}
 		{70D63741-8619-4C33-8A68-FA4E5ECF90DF} = {36EB888D-C52F-4975-B6BC-91C7C2F50F61}
 		{D0AAE4A8-F617-4BB8-A10E-ADB2D7854AEF} = {EB2999AD-4415-4C08-9C92-BD9145932023}
+		{05A2E6CF-FF06-409D-AC60-4C047F13E5A7} = {EB2999AD-4415-4C08-9C92-BD9145932023}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {24CD2DF4-24A5-4A7E-85DB-5615DBC9AA6F}

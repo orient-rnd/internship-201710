@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using EFAndIdentity.Models.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
+using IdentityCore.Data;
+using IdentityCore.Models;
+using IdentityCore.Services;
 
-namespace EFAndIdentity
+namespace IdentityCore
 {
     public class Startup
     {
@@ -25,12 +26,15 @@ namespace EFAndIdentity
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<MyIdentityDbContext>(options =>
-                    options.UseSqlServer(@"Server=.\;Database=Identity;Trusted_Connection=True;"));
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentity<MyIdentityUser, MyIdentityRole>()
-                .AddEntityFrameworkStores<MyIdentityDbContext>()
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+
+            // Add application services.
+            services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddMvc();
         }
@@ -42,20 +46,16 @@ namespace EFAndIdentity
             {
                 app.UseDeveloperExceptionPage();
                 app.UseBrowserLink();
+                app.UseDatabaseErrorPage();
             }
             else
             {
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            //CookieAuthenticationOptions options = new CookieAuthenticationOptions();
-            //options.AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie;
-            //options.LoginPath = new PathString("/account/login");
-            //app.UseCookieAuthentication(options);
+            app.UseStaticFiles();
 
             app.UseAuthentication();
-
-            app.UseStaticFiles();
 
             app.UseMvc(routes =>
             {

@@ -7,15 +7,27 @@ using Microsoft.AspNetCore.Mvc;
 using EFAndIdentity.Models;
 using EFAndIdentity.Entities;
 using Microsoft.AspNetCore.Identity;
-using EFAndIdentity.Models.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using EFAndIdentity.Models.Identity;
 
 namespace EFAndIdentity.Controllers
 {
     public class HomeController : Controller
     {
-        private UserManager<MyIdentityUser> userManager;
-        private RoleManager<MyIdentityRole> roleManager;
+        private readonly UserManager<MyIdentityUser> userManager;
+        private readonly SignInManager<MyIdentityUser> loginManager;
+        private readonly RoleManager<MyIdentityRole> roleManager;
+
+
+        public HomeController(UserManager<MyIdentityUser> userManager,
+           SignInManager<MyIdentityUser> loginManager,
+           RoleManager<MyIdentityRole> roleManager)
+        {
+            this.userManager = userManager;
+            this.loginManager = loginManager;
+            this.roleManager = roleManager;
+        }
+
 
         public IActionResult Index()
         {
@@ -26,13 +38,20 @@ namespace EFAndIdentity.Controllers
             //var job = db.Job.FirstOrDefault(n => n.JobName == "abc");
             //job.Description = "dbcd";
             //db.SaveChanges();
-            MyIdentityDbContext db = new MyIdentityDbContext();
 
-            UserStore<MyIdentityUser> userStore = new UserStore<MyIdentityUser>(db);
-            //userManager = new UserManager<MyIdentityUser>(userStore);
+            var user = new MyIdentityUser();
+            user.Email = "nguyenhuuloc@gmail.com";
+            user.FullName = "nguyenhuuloc";
+            user.UserName = "nguyenhuuloc";
+            user.PasswordHash = "123456aA@";
 
-            RoleStore<MyIdentityRole> roleStore = new RoleStore<MyIdentityRole>(db);
-            //roleManager = new RoleManager<MyIdentityRole>(roleStore);
+            this.userManager.CreateAsync(user);
+
+            IdentityResult result = userManager.CreateAsync(user, "123456aA@").Result;
+            if (result.Succeeded)
+            {
+                var t = 0;
+            }
 
             return View();
         }
