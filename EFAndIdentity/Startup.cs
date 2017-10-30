@@ -46,7 +46,7 @@ namespace EFAndIdentity
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-            }
+            }            
 
             //CookieAuthenticationOptions options = new CookieAuthenticationOptions();
             //options.AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie;

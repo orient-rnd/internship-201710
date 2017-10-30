@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using IdentityCore.Data;
 using IdentityCore.Models;
 using IdentityCore.Services;
+using Microsoft.AspNetCore.Http;
 
 namespace IdentityCore
 {
@@ -53,6 +54,27 @@ namespace IdentityCore
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            //app.Use(async (context, next) =>
+            //{
+            //    // Do work that doesn't write to the Response.
+            //    await next.Invoke();
+            //    // Do logging or other work that doesn't write to the Response.
+            //});
+
+            //app.Run(async context =>
+            //{
+            //    await context.Response.WriteAsync("Hello from 2nd delegate.");
+            //});
+
+            //app.Map("/map1", HandleMapTest1);
+
+            //app.Map("/map2", HandleMapTest2);
+
+            //app.Run(async context =>
+            //{
+            //    await context.Response.WriteAsync("Hello from non-Map delegate. <p>");
+            //});
+
             app.UseStaticFiles();
 
             app.UseAuthentication();
@@ -62,6 +84,22 @@ namespace IdentityCore
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+            });
+        }
+
+        private static void HandleMapTest1(IApplicationBuilder app)
+        {
+            app.Run(async context =>
+            {
+                await context.Response.WriteAsync("Map Test 1");
+            });
+        }
+
+        private static void HandleMapTest2(IApplicationBuilder app)
+        {
+            app.Run(async context =>
+            {
+                await context.Response.WriteAsync("Map Test 2");
             });
         }
     }
