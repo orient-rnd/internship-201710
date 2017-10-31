@@ -4,11 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 
-namespace IdentityCore.Models
+namespace MVCIdentity.Models
 {
     // Add profile data for application users by adding properties to the ApplicationUser class
     public class ApplicationUser : IdentityUser
     {
-        //public string NguyenHuuLoc { get; set; }
+        public string Duc { get; set; }
     }
 }

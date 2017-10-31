@@ -2,9 +2,9 @@
 using System;
 using System.Collections.Generic;
 
-namespace IdentityCore.Data.Migrations
+namespace MVCIdentity.Data.Migrations
 {
-    public partial class NguyenHuuLoc : Migration
+    public partial class Duc : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -21,7 +21,7 @@ namespace IdentityCore.Data.Migrations
                 table: "AspNetRoles");
 
             migrationBuilder.AddColumn<string>(
-                name: "NguyenHuuLoc",
+                name: "Duc",
                 table: "AspNetUsers",
                 type: "nvarchar(max)",
                 nullable: true);
@@ -64,7 +64,7 @@ namespace IdentityCore.Data.Migrations
                 table: "AspNetRoles");
 
             migrationBuilder.DropColumn(
-                name: "NguyenHuuLoc",
+                name: "Duc",
                 table: "AspNetUsers");
 
             migrationBuilder.CreateIndex(
